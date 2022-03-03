@@ -1,43 +1,72 @@
 
-let game = ['Rock', 'Paper', 'Scissors'] // rock paper scissors options
-let playerScore = 0;
-let computerScore = 0;
-const computerSelection = computerPlay();
-const playerSelection = prompt('Rock Paper or Scissors???');
+let game = ['rock', 'paper', 'scissors'] // rock paper scissors options
+let playerScore = 0
+let computerScore = 0
+let computerSelection = computerPlay();
+let playerSelection;
 
 function computerPlay(){
     const randomChoice = game[Math.floor(Math.random() * game.length)]; 
     return randomChoice
 }
 
-function gameRound(playerSelection, computerSelection){
-    playerSelection = playerSelection.toUpperCase();
+let Win = 'You Win!'
+let Lose = 'You lost...'
+let Draw = 'It\'s a tie'
 
-    if (playerSelection === 'ROCK' && computerSelection === 'Scissors'){
-        return ('You Win!');
+// Game logic
+function gameRound(playerSelection, computerSelection){     
+    playerSelection = playerSelection.toLowerCase();
+                            // Win match
+    if (playerSelection === 'rock' && computerSelection === 'scissors'){
+        playerScore += 1;
+        console.log(`${Win} The score is ${playerScore} and ${computerScore}`);
     }
-    else if (playerSelection === 'ROCK' && computerSelection === 'Paper'){
-        return ('You lost...');
+    else if (playerSelection === 'paper' && computerSelection === 'rock'){
+        playerScore += 1;
+        console.log(`${Win} The score is ${playerScore} and ${computerScore}`);
     }
-    else if (playerSelection === 'ROCK' && computerSelection === 'Rock'){
-        return ('It\'s a tie');
+    else if (playerSelection === 'scissors' && computerSelection === 'paper'){
+        playerScore += 1;
+        console.log(`${Win} The score is ${playerScore} and ${computerScore}`);
+    }                       // Lost match
+    else if (playerSelection === 'rock' && computerSelection === 'paper'){
+        computerScore += 1;
+        console.log(`${Lose} The score is ${playerScore} and ${computerScore}`);
+    }
+    else if (playerSelection === 'paper' && computerSelection === 'scissors'){
+        computerScore += 1;
+        console.log(`${Lose} The score is ${playerScore} and ${computerScore}`);
+    }
+    else if (playerSelection === 'scissors' && computerSelection === 'rock'){
+        computerScore += 1;
+        console.log(`${Lose} The score is ${playerScore} and ${computerScore}`);
+    }                       // Draw matchß
+    else if (playerSelection === computerSelection){
+        console.log(`${Draw} The score is ${playerScore} and ${computerScore}`);
     }
     else {
         return ('Something went wrong :(')
     }
+    
 }
+gameMatch();
 
+// 5 rounds loop
 function gameMatch(){
-    if (eachRound === 'You Win!'){
-        playerScore++
+    for (let i = 0; i < 5; i++){
+        console.log(`You chose ${playerSelection} and the computer chose ${computerSelection}. The score is ${playerScore}  ${computerScore}`)
+        playerSelection = prompt('Rock Paper or Scissors???')
+        computerSelection = computerPlay();
+        gameRound(playerSelection, computerSelection);
     }
-    else if(eachRound === 'You lost...'){
-        computerScore++
+    if (playerScore > computerScore){
+        console.log(Win)
+    } 
+    else {
+        console.log(Lose)
     }
 }
 
 
-let eachRound = gameRound(playerSelection, computerSelection);
-gameMatch()
-console.log(eachRound)
-console.log(playerScore)
+
