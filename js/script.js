@@ -18,37 +18,20 @@ let Draw = 'It\'s a tie'
 function gameRound(playerSelection, computerSelection){     
     playerSelection = playerSelection.toLowerCase();
                             // Win match
-    if (playerSelection === 'rock' && computerSelection === 'scissors'){
+    if (playerSelection === 'rock' && computerSelection === 'scissors' || playerSelection === 'paper' && computerSelection === 'rock' || playerSelection === 'scissors' && computerSelection === 'paper'){
         playerScore += 1;
         console.log(`${Win} The score is ${playerScore} and ${computerScore}`);
-    }
-    else if (playerSelection === 'paper' && computerSelection === 'rock'){
-        playerScore += 1;
-        console.log(`${Win} The score is ${playerScore} and ${computerScore}`);
-    }
-    else if (playerSelection === 'scissors' && computerSelection === 'paper'){
-        playerScore += 1;
-        console.log(`${Win} The score is ${playerScore} and ${computerScore}`);
-    }                       // Lost match
-    else if (playerSelection === 'rock' && computerSelection === 'paper'){
+    }                      // Lost match
+    else if (playerSelection === 'rock' && computerSelection === 'paper' || playerSelection === 'paper' && computerSelection === 'scissors' || playerSelection === 'scissors' && computerSelection === 'rock'){
         computerScore += 1;
         console.log(`${Lose} The score is ${playerScore} and ${computerScore}`);
-    }
-    else if (playerSelection === 'paper' && computerSelection === 'scissors'){
-        computerScore += 1;
-        console.log(`${Lose} The score is ${playerScore} and ${computerScore}`);
-    }
-    else if (playerSelection === 'scissors' && computerSelection === 'rock'){
-        computerScore += 1;
-        console.log(`${Lose} The score is ${playerScore} and ${computerScore}`);
-    }                       // Draw matchß
+    }                       // Draw match
     else if (playerSelection === computerSelection){
         console.log(`${Draw} The score is ${playerScore} and ${computerScore}`);
     }
     else {
         return ('Something went wrong :(')
     }
-    
 }
 gameMatch();
 
@@ -63,7 +46,10 @@ function gameMatch(){
     if (playerScore > computerScore){
         console.log(Win)
     } 
-    else {
+    else if(playerScore === computerScore){
+        console.log(Draw)
+    }
+    else{
         console.log(Lose)
     }
 }
