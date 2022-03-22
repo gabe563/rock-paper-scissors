@@ -1,4 +1,4 @@
-
+/*
 let game = ['rock', 'paper', 'scissors'] // rock paper scissors options
 let playerScore = 0
 let computerScore = 0
@@ -55,4 +55,4 @@ function gameMatch(){
 }
 
 
-
+*/

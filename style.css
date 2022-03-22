@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+body{
+    background-color: black;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.playerSelec img,
+.computerSelec img{
+    width: 100px;
+    height: 100px;
+    filter: invert();
+}
+
+.title{
+    font-size: 24px;
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.gameBox{
+    display: flex;
+    flex-direction: column;
+}
+
+.resultsBox{
+    text-align: center;
+}
+
+.resultOne{
+    font-size: 32px;
+}
+
+.vs{
+    font-size: 20px;
+}
+
+.resultTwo{
+    font-size: 20px;
+    margin-bottom: 54px;
+}
+
+.selectionImages{
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    align-items: center;
+}
+
+.score{
+    display: flex;
+    justify-content: center;
+    gap: 7em;
+    margin-bottom: 54px;
+    font-size: 28px;
+}
+
+.optionsBtns{
+    display: flex;
+    gap: 7em;
+    justify-content: center;
+
+}
+
+.rock,
+.paper,
+.scissors{
+    display: flex;
+    background-color: white;
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.rock img,
+.paper img,
+.scissors img{
+    width: 100px;
+    height: 100px;
+}
+
+
+
+
+.git img{
+    width: 40px;
+    left: 10px;
+    top: 10px;
+    position: fixed;
+    filter: invert();
+}
+
+
