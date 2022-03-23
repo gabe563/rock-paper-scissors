@@ -1,9 +1,12 @@
-/*
-let game = ['rock', 'paper', 'scissors'] // rock paper scissors options
+ // rock paper scissors options
 let playerScore = 0
 let computerScore = 0
-let computerSelection = computerPlay();
-let playerSelection;
+let game = ['rock', 'paper', 'scissors']
+
+
+// DOM items
+
+
 
 function computerPlay(){
     const randomChoice = game[Math.floor(Math.random() * game.length)]; 
@@ -14,45 +17,43 @@ let Win = 'You Win!'
 let Lose = 'You lost...'
 let Draw = 'It\'s a tie'
 
+
+document.addEventListener('click', selections)
+
+function selections(event){
+    let selection = event.target;
+        // Rock Button
+    if (selection.classList.contains("optionBtn") && selection.id === ("rockdiv") || selection.classList.contains("selec") && selection.id === ("rockimg")) {
+        gameRound(game[0]);
+    }   // Paper Button
+    else if(selection.classList.contains("optionBtn") && selection.id === ("paperdiv") || selection.classList.contains("selec") && selection.id === ("paperimg")){
+        gameRound(game[1]);
+    }   // Scissors Button
+    else if(selection.classList.contains("optionBtn") && selection.id === ("scissorsdiv") || selection.classList.contains("selec") && selection.id === ("scissorsimg")){
+        gameRound(game[2]);
+    }
+}
+
 // Game logic
-function gameRound(playerSelection, computerSelection){     
-    playerSelection = playerSelection.toLowerCase();
+function gameRound(playerSelection){
+    const computerSelection = computerPlay();
                             // Win match
     if (playerSelection === 'rock' && computerSelection === 'scissors' || playerSelection === 'paper' && computerSelection === 'rock' || playerSelection === 'scissors' && computerSelection === 'paper'){
         playerScore += 1;
-        console.log(`${Win} The score is ${playerScore} and ${computerScore}`);
+        const currentPlayerScore = document.querySelector(".playerScor").innerHTML = `${playerScore}`;
+        console.log(Win)
     }                      // Lost match
     else if (playerSelection === 'rock' && computerSelection === 'paper' || playerSelection === 'paper' && computerSelection === 'scissors' || playerSelection === 'scissors' && computerSelection === 'rock'){
         computerScore += 1;
-        console.log(`${Lose} The score is ${playerScore} and ${computerScore}`);
+        const currentComputerScore = document.querySelector(".computerScor").innerHTML = `${computerScore}`;
+        console.log(Lose)
     }                       // Draw match
     else if (playerSelection === computerSelection){
-        console.log(`${Draw} The score is ${playerScore} and ${computerScore}`);
+        const currentPlayerScore = document.querySelector(".playerScor").innerHTML = `${playerScore}`;
+        const currentComputerScore = document.querySelector(".computerScor").innerHTML = `${computerScore}`;
+        console.log(Draw)
     }
     else {
         return ('Something went wrong :(')
     }
 }
-gameMatch();
-
-// 5 rounds loop
-function gameMatch(){
-    for (let i = 0; i < 5; i++){
-        console.log(`You chose ${playerSelection} and the computer chose ${computerSelection}. The score is ${playerScore}  ${computerScore}`)
-        playerSelection = prompt('Rock Paper or Scissors???')
-        computerSelection = computerPlay();
-        gameRound(playerSelection, computerSelection);
-    }
-    if (playerScore > computerScore){
-        console.log(Win)
-    } 
-    else if(playerScore === computerScore){
-        console.log(Draw)
-    }
-    else{
-        console.log(Lose)
-    }
-}
-
-
-*/

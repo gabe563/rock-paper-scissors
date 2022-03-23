@@ -48,14 +48,20 @@ body{
     align-items: center;
 }
 
+.playerSelec,
+.computerSelec{
+    width: 100px;
+    height: 100px;
+}
+
 .score{
     display: flex;
     justify-content: center;
     gap: 7em;
-    margin-bottom: 54px;
     font-size: 28px;
 }
 
+.optionBtn,
 .optionsBtns{
     display: flex;
     gap: 7em;
@@ -63,21 +69,21 @@ body{
 
 }
 
-.rock,
-.paper,
-.scissors{
+#rockdiv,
+#paperdiv,
+#scissorsdiv{
     display: flex;
     background-color: white;
     width: 120px;
     height: 120px;
-    border-radius: 8px;
+    border-radius: 32px;
     align-items: center;
     justify-content: center;
 }
 
-.rock img,
-.paper img,
-.scissors img{
+#rockdiv img,
+#paperdiv img,
+#scissorsdiv img{
     width: 100px;
     height: 100px;
 }
