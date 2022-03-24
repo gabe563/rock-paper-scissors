@@ -13,28 +13,49 @@ function gameRound(playerSelection){
         resultOne.innerHTML = `You Won!`;
         resultTwo.innerHTML = `${capitalizeFirst(playerSelection)} beats ${computerSelection}!`;
         PlayerScor.innerHTML = `${playerScore}`;
+        gameScore(playerScore, computerScore);
     }                      // Lost match
     else if (playerSelection === 'rock' && computerSelection === 'paper' || playerSelection === 'paper' && computerSelection === 'scissors' || playerSelection === 'scissors' && computerSelection === 'rock'){
         computerScore += 1;
         resultOne.innerHTML = `You Lost!`;
         resultTwo.innerHTML = `${capitalizeFirst(playerSelection)} is beaten by ${computerSelection}...`;
         ComputerScor.innerHTML = `${computerScore}`;
+        gameScore(playerScore, computerScore);
     }                       // Draw match
     else if (playerSelection === computerSelection){
         resultOne.innerHTML = `It\`s A Tie!`;
         resultTwo.innerHTML = `${capitalizeFirst(playerSelection)} ties with ${computerSelection}`;
         PlayerScor.innerHTML = `${playerScore}`;
         ComputerScor.innerHTML = `${computerScore}`;
+        gameScore(playerScore, computerScore);
     }
     else {
         return ('Something went wrong :(');
     }
 }
 
-// Score Game Over
-function gameOver() {
-    return playerScore === 5 || computerScore === 5
-  }
+// Score tracker
+function gameScore(playerScore, computerScore){
+    if(playerScore === 5 || computerScore === 5){
+        if(playerScore > computerScore){
+            gameoverModal.classList.add('active');
+            overlay.classList.add('active');
+            gameoverText.textContent = 'You Won! 😲';
+        }
+        else if(computerScore > playerScore){
+            gameoverModal.classList.add('active');
+            overlay.classList.add('active');
+            gameoverText.textContent = 'You Lost... 😞';
+        }
+        else{
+            gameoverModal.classList.add('active');
+            overlay.classList.add('active');
+            gameoverText.textContent = 'It was a tie';
+        }
+    }
+    
+}
+
 
 // DOM items
 const playerImg = document.getElementById('playerimg');
@@ -49,12 +70,20 @@ const resultTwo = document.querySelector('.resultTwo');
 const PlayerScor = document.querySelector('.playerScor');
 const ComputerScor = document.querySelector('.computerScor');
 
+const gameoverModal = document.getElementById('gameoverModal')
+const gameoverText = document.getElementById('gameoverText')
+
+const overlay = document.getElementById('overlay');
+
+const restartBtn = document.getElementById('restartBtn');
+
 function computerPlay(){
     const randomChoice = game[Math.floor(Math.random() * game.length)]; 
     return randomChoice;
 }
 
 document.addEventListener('click', selections);
+restartBtn.addEventListener('click', restart);
 
 function selections(event){
     let selection = event.target;
@@ -109,3 +138,19 @@ function selectedImage(playerSelection, computerSelection){
 function capitalizeFirst(string){
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
+
+// Restart Game
+function restart() {
+    playerScore = 0;
+    computerScore = 0;
+    resultOne.textContent = 'Choose Your Weapon';
+    resultTwo.textContent = 'First to 5 points wins!';
+    PlayerScor.innerHTML = '0';
+    ComputerScor.innerHTML= '0';
+    playerImg.src = '';
+    playerImg.style.visibility = "hidden";
+    computerImg.src = '';
+    computerImg.style.visibility = "hidden";
+    gameoverModal.classList.remove('active')
+    overlay.classList.remove('active')
+  }
