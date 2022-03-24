@@ -72,30 +72,30 @@ function selectedImage(playerSelection, computerSelection){
                 // Rock image
     switch(playerSelection){
         case 'rock':
-            playerImg.src = '/img/rock-icon.png';
+            playerImg.src = 'img/rock-icon.png';
             playerImg.style.visibility = "visible";
         break;  // Paper image
         case 'paper':
-            playerImg.src = '/img/paper-icon.png';
+            playerImg.src = 'img/paper-icon.png';
             playerImg.style.visibility = "visible";
         break;  // Scissors image
         case 'scissors':
-            playerImg.src = '/img/scissors-icon.png';
+            playerImg.src = 'img/scissors-icon.png';
             playerImg.style.visibility = "visible";
         break;
     }
                 // Rock image
     switch(computerSelection){
         case 'rock':
-            computerImg.src = '/img/rock-icon.png';
+            computerImg.src = 'img/rock-icon.png';
             computerImg.style.visibility = "visible";
         break;  // Paper image
         case 'paper':
-            computerImg.src = '/img/paper-icon.png';
+            computerImg.src = 'img/paper-icon.png';
             computerImg.style.visibility = "visible";
         break;  // Scissors image
         case 'scissors':
-            computerImg.src = '/img/scissors-icon.png';
+            computerImg.src = 'img/scissors-icon.png';
             computerImg.style.visibility = "visible";
         break;
     }
