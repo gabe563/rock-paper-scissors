@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body{
     background-color: black;
     color: white;
@@ -14,6 +19,7 @@ body{
 }
 
 .title{
+    margin: 32px 0 24px;
     font-size: 24px;
     text-align: center;
     font-family: 'Permanent Marker', cursive;
@@ -26,6 +32,13 @@ body{
 
 .resultsBox{
     text-align: center;
+}
+
+.results{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 48px 0 28px;
 }
 
 .resultOne{
@@ -48,6 +61,11 @@ body{
     align-items: center;
 }
 
+#playerimg,
+#computerimg{
+    visibility: hidden;
+}
+
 .playerSelec,
 .computerSelec{
     width: 100px;
@@ -57,6 +75,7 @@ body{
 .score{
     display: flex;
     justify-content: center;
+    margin: 28px 0 65px;
     gap: 7em;
     font-size: 28px;
 }
