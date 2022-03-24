@@ -11,18 +11,18 @@ function gameRound(playerSelection){
     if (playerSelection === 'rock' && computerSelection === 'scissors' || playerSelection === 'paper' && computerSelection === 'rock' || playerSelection === 'scissors' && computerSelection === 'paper'){
         playerScore += 1;
         resultOne.innerHTML = `You Won!`;
-        resultTwo.innerHTML = `${playerSelection} beats ${computerSelection}!`;
+        resultTwo.innerHTML = `${capitalizeFirst(playerSelection)} beats ${computerSelection}!`;
         PlayerScor.innerHTML = `${playerScore}`;
     }                      // Lost match
     else if (playerSelection === 'rock' && computerSelection === 'paper' || playerSelection === 'paper' && computerSelection === 'scissors' || playerSelection === 'scissors' && computerSelection === 'rock'){
         computerScore += 1;
         resultOne.innerHTML = `You Lost!`;
-        resultTwo.innerHTML = `${playerSelection} is beaten by ${computerSelection}...`;
+        resultTwo.innerHTML = `${capitalizeFirst(playerSelection)} is beaten by ${computerSelection}...`;
         ComputerScor.innerHTML = `${computerScore}`;
     }                       // Draw match
     else if (playerSelection === computerSelection){
         resultOne.innerHTML = `It\`s A Tie!`;
-        resultTwo.innerHTML = `${playerSelection} ties with ${computerSelection}`;
+        resultTwo.innerHTML = `${capitalizeFirst(playerSelection)} ties with ${computerSelection}`;
         PlayerScor.innerHTML = `${playerScore}`;
         ComputerScor.innerHTML = `${computerScore}`;
     }
@@ -30,6 +30,11 @@ function gameRound(playerSelection){
         return ('Something went wrong :(');
     }
 }
+
+// Score Game Over
+function gameOver() {
+    return playerScore === 5 || computerScore === 5
+  }
 
 // DOM items
 const playerImg = document.getElementById('playerimg');
@@ -99,4 +104,8 @@ function selectedImage(playerSelection, computerSelection){
             computerImg.style.visibility = "visible";
         break;
     }
+}
+
+function capitalizeFirst(string){
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }

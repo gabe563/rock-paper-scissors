@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -118,4 +119,16 @@ body{
     filter: invert();
 }
 
+@media (max-width: 550px){
+    .git img{
+        width: 26px;
+    }
 
+    .title {
+        font-size: 18px;
+    }
+
+    .optionsBtns{
+        gap: 2em;
+    }
+}
