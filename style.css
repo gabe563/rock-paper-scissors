@@ -122,6 +122,10 @@ button{
 
 }
 
+.optionBtn{
+    transition: all 0.4s ease;
+}
+
 #rockdiv,
 #paperdiv,
 #scissorsdiv{
